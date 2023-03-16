@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #ddd;
+}
+
+header {
+	width: 25em;
+	padding: 2.5em;
+	margin: 0 auto;
+	background-color: #eee;
+}
+
+h1 {
+	font-family: Merriweather, serif;
+	font-size: 4em;
+	text-align: center;
+	text-color: #444;
+}
+
+p {
+	font-family: Oxygen, sans-serif;
+	font-size: 1em;
+	text-color: #333;
+}
+
+a {
+	color: #00b39e;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00b39e;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #004d44;
+}

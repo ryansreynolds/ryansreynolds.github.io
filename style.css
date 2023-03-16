@@ -18,13 +18,13 @@ h1 {
 	font-family: Merriweather, serif;
 	font-size: 4em;
 	text-align: center;
-	text-color: #444;
+	color: #444;
 }
 
 p {
 	font-family: Oxygen, sans-serif;
 	font-size: 1em;
-	text-color: #333;
+	color: #333;
 }
 
 a {

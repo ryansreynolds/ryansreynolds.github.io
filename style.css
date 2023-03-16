@@ -18,9 +18,9 @@ h1 {
 	font-family: Merriweather, serif;
 	font-size: 3em;
 	text-align: center;
-	background: -webkit-linear-gradient(#444, #666);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	background: linear-gradient(38deg, rgba(15,62,4,1) 0%, rgba(57,176,59,1) 47%, rgba(38,226,176,1) 100%);
+	background-clip: text;
+	text-fill-color: transparent;
 }
 
 p {

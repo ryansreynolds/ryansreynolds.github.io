@@ -8,8 +8,8 @@ body {
 }
 
 header {
-	padding: 2.5em;
-	margin: 5em;
+	padding: 5em;
+	margin: 5em auto;
 	background-color: #eee;
 }
 
@@ -23,22 +23,22 @@ h1 {
 }
 
 p {
-	font-family: Oxygen, sans-serif;
+	font-family: Merriweather, sans-serif;
 	font-size: 1em;
 	color: #333;
 	padding: 4px 0;
 }
 
 a {
-	color: #00b39e;
+	color: #57803c;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #00b39e;
+	color: #74AA50;
 	text-decoration: underline;
 }
 
 a:visited {
-	color: #e6635c;
+	color: #007681;
 }

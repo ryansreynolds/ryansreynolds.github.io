@@ -46,6 +46,11 @@
     transition: border-color 0.15s ease, color 0.15s ease;
   }
 
+  .wrap > .back:last-child {
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+
   .back:hover {
     color: var(--accent);
     border-color: rgba(122, 92, 62, 0.35);
@@ -107,6 +112,12 @@
     margin-top: 0;
   }
 
+  h2.section-heading + hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0 0 1.4em;
+  }
+
   /* ---- Publication entries ---- */
 
   .pub-list {
@@ -116,9 +127,6 @@
   }
 
   .pub {
-    display: grid;
-    grid-template-columns: 168px 1fr;
-    gap: 28px;
     padding: 2.6em 0;
     border-bottom: 1px solid var(--rule);
   }
@@ -132,41 +140,30 @@
   }
 
   .pub-figure {
-    width: 168px;
-    height: 168px;
+    display: flex;
+    width: 90%;
+    aspect-ratio: 1.85 / 1;
     border-radius: 6px;
     overflow: hidden;
     background: var(--panel);
     border: 1px solid var(--rule);
-    display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto 1em;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: opacity 0.15s ease;
+  }
+
+  .pub-figure:hover {
+    opacity: 0.85;
   }
 
   .pub-figure img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
-  }
-
-  /* Placeholder styling — remove once a real <img> is dropped in */
-  .pub-figure.placeholder {
-    flex-direction: column;
-    gap: 0.4em;
-    border-style: dashed;
-    color: var(--muted);
-    font-size: 0.72rem;
-    text-align: center;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 1em;
-  }
-
-  .pub-figure.placeholder svg {
-    width: 34px;
-    height: 34px;
-    opacity: 0.5;
   }
 
   .pub-body {
@@ -244,14 +241,7 @@
     .wrap { padding: 7vh 20px 1em; }
     h1 { font-size: 1.75rem; }
     .pub {
-      grid-template-columns: 1fr;
-      gap: 16px;
       padding: 2.2em 0;
-    }
-    .pub-figure,
-    .pub-figure.placeholder {
-      width: 100%;
-      height: 200px;
     }
   }
 
@@ -324,116 +314,88 @@
     </div>
 
     <h2 class="section-heading">First-Author Publications</h2>
+    <hr>
     <ul class="pub-list">
 
       <li class="pub">
-        <div class="pub-figure placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="9.5" r="1.5"/>
-            <path d="M21 15l-5-5L5 21"/>
-          </svg>
-          <span>Summary graphic</span>
-        </div>
         <div class="pub-body">
           <p class="pub-kicker">Enviromental Science: Processes & Impacts &middot; 2025</p>
           <h3 class="pub-title"><a href="https://doi.org/10.1039/D5EM00275C" target="_blank" rel="noopener">Surfaces, Silica, and Semivolatile Organics—Limonene Uptake and Desorption Indoors and Outdoors</a></h3>
           <p class="pub-byline"><span class="me">Ryan S. Reynolds</span>, Kristen N. Johnson, Katelyn Pacaud, Michael Ezell, Pascale S. J. Lakey, Manabu Shiraiwa, Barbara J. Finlayson-Pitts</p>
+          <a class="pub-figure" href="https://doi.org/10.1039/D5EM00275C" target="_blank" rel="noopener">
+            <img src="assets/1-Limonene_SiOH_TOC.png" alt="Graphical summary of limonene uptake and desorption on silica surfaces">
+          </a>
           <p class="pub-synopsis">We measured the desorption energy of limonene, a common organic molecule, from silica surfaces analogous to those found outdoors (sand) and indoors (glass). This value can be used to predict how long limonene will stick to these surfaces, which will determine its chemical reactivity and lifetime in the atmosphere.</p>
-          <a class="pub-link" href="https://doi.org/10.1039/D5EM00275C" target="_blank" rel="noopener">DOI: 10.1039/D5EM00275C</a>
         </div>
       </li>
 
       <li class="pub">
-        <div class="pub-figure placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="9.5" r="1.5"/>
-            <path d="M21 15l-5-5L5 21"/>
-          </svg>
-          <span>Summary graphic</span>
-        </div>
         <div class="pub-body">
           <p class="pub-kicker">Accounts of Chemical Research &middot; 2025</p>
           <h3 class="pub-title"><a href="https://doi.org/10.1021/acs.accounts.4c00662" target="_blank" rel="noopener">Unraveling the Meaning of Effective Uptake Coefficients in Multiphase and Aerosol Chemistry</a></h3>
           <p class="pub-byline"><span class="me">Ryan S. Reynolds</span>, Kevin R. Wilson</p>
+          <a class="pub-figure" href="https://doi.org/10.1021/acs.accounts.4c00662" target="_blank" rel="noopener">
+            <img src="assets/2-TOC_figure_ACR.png" alt="Graphical summary of effective uptake coefficients in multiphase and aerosol chemistry">
+          </a>
           <p class="pub-synopsis">A thematic review of work from the Wilson Research Group on how measurements of heterogeneous reaction rates (effective uptake coefficients) can report on multiple aspects of a physical system (<i>eg.</i> diffusion and mixing times, secondary reactions, and complex chemcal mechanisms).</p>
-          <a class="pub-link" href="https://doi.org/10.1021/acs.accounts.4c00662" target="_blank" rel="noopener">DOI: 10.1021/acs.accounts.4c00662</a>
         </div>
       </li>
 
       <li class="pub">
-        <div class="pub-figure placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="9.5" r="1.5"/>
-            <path d="M21 15l-5-5L5 21"/>
-          </svg>
-          <span>Summary graphic</span>
-        </div>
         <div class="pub-body">
           <p class="pub-kicker">Journal of Physical Chemistry A &middot; 2025</p>
           <h3 class="pub-title"><a href="https://doi.org/10.1021/acs.jpca.4c06885" target="_blank" rel="noopener">Balance of Unimolecular and Bimolecular Pathways Control the Temperature-Dependent Kinetics of Ozonolysis in Aerosols</a></h3>
           <p class="pub-byline"><span class="me">Ryan S. Reynolds</span>, Kevin R. Wilson</p>
+          <a class="pub-figure" href="https://doi.org/10.1021/acs.jpca.4c06885" target="_blank" rel="noopener">
+            <img src="assets/3-Tri_Temperature_TOC.png" alt="Graphical summary of temperature-dependent ozonolysis kinetics in aerosols">
+          </a>
           <p class="pub-synopsis">Using a temperature-controlled flow tube, we tracked how fast ozone reacts with aerosol particles made of an alkene, both alone and mixed with a carboxylic acid that intercepts a key reactive intermediate. The alkene-only particles reacted faster as things got colder, while the acid-doped particles barely changed — a contrast that reveals a temperature-dependent tug-of-war between two competing reaction pathways inside the particle.</p>
         </div>
       </li>
 
       <li class="pub">
-        <div class="pub-figure placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="9.5" r="1.5"/>
-            <path d="M21 15l-5-5L5 21"/>
-          </svg>
-          <span>Summary graphic</span>
-        </div>
         <div class="pub-body">
           <p class="pub-kicker">ACS Earth & Space Chemistry &middot; 2023</p>
           <h3 class="pub-title"><a href="https://doi.org/10.1021/acsearthspacechem.3c00026" target="_blank" rel="noopener">Constraining the Reaction Rate of Criegee Intermediates with Carboxylic Acids during the Multiphase Ozonolysis of Aerosolized Alkenes</a></h3>
           <p class="pub-byline"><span class="me">Ryan Reynolds</span>, Musahid Ahmed, Kevin R. Wilson</p>
+          <a class="pub-figure" href="https://doi.org/10.1021/acsearthspacechem.3c00026" target="_blank" rel="noopener">
+            <img src="assets/4-CIAcid_TOC.jpeg" alt="Graphical summary of Criegee intermediate reaction rates with carboxylic acids in aerosolized alkene ozonolysis">
+          </a>
           <p class="pub-synopsis">Ozone reacting with alkenes produces short-lived, highly reactive species called Criegee intermediates, which can react with carboxylic acids to build larger molecules. We measured how fast this reaction happens inside aerosol particles, rather than in the gas phase, and found a rate constant that helps pin down how significant this pathway is for aging organic aerosol in the atmosphere.</p>
         </div>
       </li>
     </ul>
 
     <h2 class="section-heading">Collaborator Publications</h2>
+    <hr>
     <ul class="pub-list">
       <li class="pub">
-        <div class="pub-figure placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="9.5" r="1.5"/>
-            <path d="M21 15l-5-5L5 21"/>
-          </svg>
-          <span>Summary graphic</span>
-        </div>
         <div class="pub-body">
           <p class="pub-kicker">Journal of Physical Chemistry Letters &middot; 2024</p>
           <h3 class="pub-title"><a href="https://doi.org/10.1021/acs.jpclett.4c02736" target="_blank" rel="noopener">Accelerated Zymonic Acid Formation from Pyruvic Acid at the Interface of Aqueous Nanodroplets</a></h3>
           <p class="pub-byline">Pyeongeun Kim, <span class="me">Ryan S. Reynolds</span>, Alexandra M. Deal, Veronica Vaida, Musahid Ahmed, Kevin R. Wilson</p>
+          <a class="pub-figure" href="https://doi.org/10.1021/acs.jpclett.4c02736" target="_blank" rel="noopener">
+            <img src="assets/5-PyrZym_TOC.jpeg" alt="Graphical summary of accelerated zymonic acid formation from pyruvic acid at nanodroplet interfaces">
+          </a>
           <p class="pub-synopsis">Pyruvic acid molecules normally take days to combine into zymonic acid in a beaker of solution, but we found the same reaction finishes in minutes inside tiny aqueous droplets. Modeling showed this roughly ten-thousand-fold speedup happens because the reaction is effectively confined to the droplet's surface, where pyruvic acid concentrates and reacts far more readily than it would in the bulk liquid.</p>
         </div>
       </li>
 
       <li class="pub">
-        <div class="pub-figure placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="9.5" r="1.5"/>
-            <path d="M21 15l-5-5L5 21"/>
-          </svg>
-          <span>Summary graphic</span>
-        </div>
         <div class="pub-body">
           <p class="pub-kicker">Aerosol Science and Technology &middot; 2023</p>
           <h3 class="pub-title"><a href="https://doi.org/10.1080/02786826.2023.2226183" target="_blank" rel="noopener">Exploring the Influence of Particle Phase in the Ozonolysis of Oleic and Elaidic Acid</a></h3>
           <p class="pub-byline">Ravleen Kaur Kohli, <span class="me">Ryan S. Reynolds</span>, Kevin R. Wilson, James F. Davies</p>
+          <a class="pub-figure" href="https://doi.org/10.1080/02786826.2023.2226183" target="_blank" rel="noopener">
+            <img src="assets/6-EAOA_TOC.jpg" alt="Graphical summary of ozonolysis of oleic and elaidic acid across particle phases">
+          </a>
           <p class="pub-synopsis">Using single-particle levitation and flow-tube experiments, we compared how ozone reacts with oleic acid and its solid-forming isomer elaidic acid across liquid, supercooled, and solid states of the same chemical. Directly comparing the same reaction across different particle phases showed that phase state has a clear effect on both how fast the reaction proceeds and what products form.</p>
         </div>
       </li>
 
     </ul>
+
+    <a class="back" href="index.html">&larr; Back to profile</a>
   </div>
 
   <footer>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications | Ryan Reynolds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #22252a;
+    --muted: #5b6270;
+    --rule: #e2e4e8;
+    --paper: #fdfdfc;
+    --accent: #7a5c3e;
+    --panel: #f4f3f0;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Open Sans', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 10vh 24px 1em;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 2.4em;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .back:hover {
+    color: var(--accent);
+    border-color: rgba(122, 92, 62, 0.35);
+  }
+
+  h1 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 900;
+    font-size: 2.1rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.4em;
+    color: var(--ink);
+  }
+
+  p.intro {
+    margin: 0 0 1.4em;
+    color: var(--muted);
+    max-width: 46ch;
+  }
+
+  .profile-links {
+    display: flex;
+    gap: 1.5em;
+    margin: 0 0 2.8em;
+  }
+
+  .profile-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .profile-links svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .profile-links a:hover {
+    color: var(--accent);
+    border-color: rgba(122, 92, 62, 0.35);
+  }
+
+  h2.section-heading {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 2.4em 0 0.6em;
+    color: var(--ink);
+  }
+
+  h2.section-heading:first-of-type {
+    margin-top: 0;
+  }
+
+  /* ---- Publication entries ---- */
+
+  .pub-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pub {
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    gap: 28px;
+    padding: 2.6em 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pub:first-child {
+    padding-top: 0;
+  }
+
+  .pub:last-child {
+    border-bottom: none;
+  }
+
+  .pub-figure {
+    width: 168px;
+    height: 168px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pub-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Placeholder styling — remove once a real <img> is dropped in */
+  .pub-figure.placeholder {
+    flex-direction: column;
+    gap: 0.4em;
+    border-style: dashed;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 1em;
+  }
+
+  .pub-figure.placeholder svg {
+    width: 34px;
+    height: 34px;
+    opacity: 0.5;
+  }
+
+  .pub-body {
+    min-width: 0;
+  }
+
+  .pub-kicker {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5em;
+  }
+
+  .pub-title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.18rem;
+    line-height: 1.4;
+    margin: 0 0 0.4em;
+    color: var(--ink);
+  }
+
+  .pub-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .pub-title a:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(34, 37, 42, 0.35);
+  }
+
+  .pub-byline {
+    margin: 0 0 0.9em;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .pub-byline .me {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .pub-synopsis {
+    margin: 0 0 1em;
+    color: var(--ink);
+    font-size: 0.97rem;
+  }
+
+  .pub-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .pub-link::after {
+    content: "→";
+    font-weight: 400;
+    color: var(--accent);
+    transition: transform 0.15s ease;
+  }
+
+  .pub-link:hover::after {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 7vh 20px 1em; }
+    h1 { font-size: 1.75rem; }
+    .pub {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 2.2em 0;
+    }
+    .pub-figure,
+    .pub-figure.placeholder {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  /* ---- Footer (matches the profile page) ---- */
+
+  footer {
+    position: relative;
+    margin-top: 0.25em;
+    padding: 4em 24px 2em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url('greenCircle_particlebgrd.svg');
+    background-repeat: no-repeat;
+    background-position: center -2.5em;
+    background-size: 700px;
+  }
+
+
+  /* Bottom fade: fixed height (not %), so it only visibly kicks in when
+     the footer is short enough to clip the image partway through. When
+     the footer is tall enough to show the full image, this sits below
+     it in already-blank space and has no visible effect. */
+  footer::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(253, 253, 252, 0) 0%, var(--paper) 100%);
+    pointer-events: none;
+  }
+
+  footer p {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 620px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">&larr; Back to profile</a>
+
+    <h1>Publications</h1>
+    <!-- <p class="intro">A running list of research projects and papers, each with a short synopsis and a link to the full text.</p> -->
+
+    <div class="profile-links">
+      <a href="https://scholar.google.com/citations?user=LWUxNXUAAAAJ" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9.5L12 5l9 4.5-9 4.5-9-4.5z"/>
+          <path d="M7 11.5v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4"/>
+        </svg>
+        Google Scholar
+      </a>
+      <a href="https://orcid.org/0000-0002-6513-6377" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="12" cy="12" r="9.5"/>
+          <text x="12" y="15.6" text-anchor="middle" font-size="8.5" font-family="'Open Sans', sans-serif" font-weight="700" fill="currentColor" stroke="none">iD</text>
+        </svg>
+        ORCID
+      </a>
+    </div>
+
+    <h2 class="section-heading">First-Author Publications</h2>
+    <ul class="pub-list">
+
+      <li class="pub">
+        <div class="pub-figure placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <span>Summary graphic</span>
+        </div>
+        <div class="pub-body">
+          <p class="pub-kicker">Enviromental Science: Processes & Impacts &middot; 2025</p>
+          <h3 class="pub-title"><a href="https://doi.org/10.1039/D5EM00275C" target="_blank" rel="noopener">Surfaces, Silica, and Semivolatile Organics—Limonene Uptake and Desorption Indoors and Outdoors</a></h3>
+          <p class="pub-byline"><span class="me">Ryan S. Reynolds</span>, Kristen N. Johnson, Katelyn Pacaud, Michael Ezell, Pascale S. J. Lakey, Manabu Shiraiwa, Barbara J. Finlayson-Pitts</p>
+          <p class="pub-synopsis">We measured the desorption energy of limonene, a common organic molecule, from silica surfaces analogous to those found outdoors (sand) and indoors (glass). This value can be used to predict how long limonene will stick to these surfaces, which will determine its chemical reactivity and lifetime in the atmosphere.</p>
+          <a class="pub-link" href="https://doi.org/10.1039/D5EM00275C" target="_blank" rel="noopener">DOI: 10.1039/D5EM00275C</a>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-figure placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <span>Summary graphic</span>
+        </div>
+        <div class="pub-body">
+          <p class="pub-kicker">Accounts of Chemical Research &middot; 2025</p>
+          <h3 class="pub-title"><a href="https://doi.org/10.1021/acs.accounts.4c00662" target="_blank" rel="noopener">Unraveling the Meaning of Effective Uptake Coefficients in Multiphase and Aerosol Chemistry</a></h3>
+          <p class="pub-byline"><span class="me">Ryan S. Reynolds</span>, Kevin R. Wilson</p>
+          <p class="pub-synopsis">A thematic review of work from the Wilson Research Group on how measurements of heterogeneous reaction rates (effective uptake coefficients) can report on multiple aspects of a physical system (<i>eg.</i> diffusion and mixing times, secondary reactions, and complex chemcal mechanisms).</p>
+          <a class="pub-link" href="https://doi.org/10.1021/acs.accounts.4c00662" target="_blank" rel="noopener">DOI: 10.1021/acs.accounts.4c00662</a>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-figure placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <span>Summary graphic</span>
+        </div>
+        <div class="pub-body">
+          <p class="pub-kicker">Journal of Physical Chemistry A &middot; 2025</p>
+          <h3 class="pub-title"><a href="https://doi.org/10.1021/acs.jpca.4c06885" target="_blank" rel="noopener">Balance of Unimolecular and Bimolecular Pathways Control the Temperature-Dependent Kinetics of Ozonolysis in Aerosols</a></h3>
+          <p class="pub-byline"><span class="me">Ryan S. Reynolds</span>, Kevin R. Wilson</p>
+          <p class="pub-synopsis">Using a temperature-controlled flow tube, we tracked how fast ozone reacts with aerosol particles made of an alkene, both alone and mixed with a carboxylic acid that intercepts a key reactive intermediate. The alkene-only particles reacted faster as things got colder, while the acid-doped particles barely changed — a contrast that reveals a temperature-dependent tug-of-war between two competing reaction pathways inside the particle.</p>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-figure placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <span>Summary graphic</span>
+        </div>
+        <div class="pub-body">
+          <p class="pub-kicker">ACS Earth & Space Chemistry &middot; 2023</p>
+          <h3 class="pub-title"><a href="https://doi.org/10.1021/acsearthspacechem.3c00026" target="_blank" rel="noopener">Constraining the Reaction Rate of Criegee Intermediates with Carboxylic Acids during the Multiphase Ozonolysis of Aerosolized Alkenes</a></h3>
+          <p class="pub-byline"><span class="me">Ryan Reynolds</span>, Musahid Ahmed, Kevin R. Wilson</p>
+          <p class="pub-synopsis">Ozone reacting with alkenes produces short-lived, highly reactive species called Criegee intermediates, which can react with carboxylic acids to build larger molecules. We measured how fast this reaction happens inside aerosol particles, rather than in the gas phase, and found a rate constant that helps pin down how significant this pathway is for aging organic aerosol in the atmosphere.</p>
+        </div>
+      </li>
+    </ul>
+
+    <h2 class="section-heading">Collaborator Publications</h2>
+    <ul class="pub-list">
+      <li class="pub">
+        <div class="pub-figure placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <span>Summary graphic</span>
+        </div>
+        <div class="pub-body">
+          <p class="pub-kicker">Journal of Physical Chemistry Letters &middot; 2024</p>
+          <h3 class="pub-title"><a href="https://doi.org/10.1021/acs.jpclett.4c02736" target="_blank" rel="noopener">Accelerated Zymonic Acid Formation from Pyruvic Acid at the Interface of Aqueous Nanodroplets</a></h3>
+          <p class="pub-byline">Pyeongeun Kim, <span class="me">Ryan S. Reynolds</span>, Alexandra M. Deal, Veronica Vaida, Musahid Ahmed, Kevin R. Wilson</p>
+          <p class="pub-synopsis">Pyruvic acid molecules normally take days to combine into zymonic acid in a beaker of solution, but we found the same reaction finishes in minutes inside tiny aqueous droplets. Modeling showed this roughly ten-thousand-fold speedup happens because the reaction is effectively confined to the droplet's surface, where pyruvic acid concentrates and reacts far more readily than it would in the bulk liquid.</p>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-figure placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <span>Summary graphic</span>
+        </div>
+        <div class="pub-body">
+          <p class="pub-kicker">Aerosol Science and Technology &middot; 2023</p>
+          <h3 class="pub-title"><a href="https://doi.org/10.1080/02786826.2023.2226183" target="_blank" rel="noopener">Exploring the Influence of Particle Phase in the Ozonolysis of Oleic and Elaidic Acid</a></h3>
+          <p class="pub-byline">Ravleen Kaur Kohli, <span class="me">Ryan S. Reynolds</span>, Kevin R. Wilson, James F. Davies</p>
+          <p class="pub-synopsis">Using single-particle levitation and flow-tube experiments, we compared how ozone reacts with oleic acid and its solid-forming isomer elaidic acid across liquid, supercooled, and solid states of the same chemical. Directly comparing the same reaction across different particle phases showed that phase state has a clear effect on both how fast the reaction proceeds and what products form.</p>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Ryan Reynolds</p>
+  </footer>
+</body>
+</html>
